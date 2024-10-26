@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Médias por Matéria</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td input {
+            width: 80%;
+            padding: 8px;
+            border: 1px solid #9c9c9c;
+            border-radius: 4px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #badbbc;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+
+            table,
+            th,
+            td {
+                font-size: 0.9em;
+            }
+
+            td input {
+                width: 100%;
+            }
+
+            button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Calculadora de Média por Matéria</h2>
+    <form action="">
+        <table>
+            <thead>
+                <tr>
+                    <th>Matéria</th>
+                    <th>1º Bimestre</th>
+                    <th>2º Bimestre</th>
+                    <th>Soma</th>
+                    <th>Falta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- História I -->
+                <tr>
+                    <td>História I</td>
+                    <td><input type="number" id="hist1_1"></td>
+                    <td><input type="number" id="hist1_2"></td>
+                    <td id="media-historia1"></td>
+                    <td id="falta-historia1"></td>
+                </tr>
+                <!-- Biologia III -->
+                <tr>
+                    <td>Biologia III</td>
+                    <td><input type="number" id="bio_1"></td>
+                    <td><input type="number" id="bio_2"></td>
+                    <td id="media-biologia"></td>
+                    <td id="falta-biologia"></td>
+                </tr>
+                <!-- Educação Física III -->
+                <tr>
+                    <td>Educação Física III</td>
+                    <td><input type="number" id="edfis_1"></td>
+                    <td><input type="number" id="edfis_2"></td>
+                    <td id="media-educfisica"></td>
+                    <td id="falta-educfisica"></td>
+                </tr>
+                <!-- Filosofia -->
+                <tr>
+                    <td>Filosofia</td>
+                    <td><input type="number" id="fil_1"></td>
+                    <td><input type="number" id="fil_2"></td>
+                    <td id="media-filosofia"></td>
+                    <td id="falta-filosofia"></td>
+                </tr>
+                <!-- Física III -->
+                <tr>
+                    <td>Física III</td>
+                    <td><input type="number" id="fis_1"></td>
+                    <td><input type="number" id="fis_2"></td>
+                    <td id="media-fisica"></td>
+                    <td id="falta-fisica"></td>
+                </tr>
+                <!-- Espanhol II -->
+                <tr>
+                    <td>Espanhol II</td>
+                    <td><input type="number" id="esp_1"></td>
+                    <td><input type="number" id="esp_2"></td>
+                    <td id="media-espanhol"></td>
+                    <td id="falta-espanhol"></td>
+                </tr>
+                <!-- Língua Inglesa II -->
+                <tr>
+                    <td>Língua Inglesa II</td>
+                    <td><input type="number" id="ing_1"></td>
+                    <td><input type="number" id="ing_2"></td>
+                    <td id="media-ingles"></td>
+                    <td id="falta-ingles"></td>
+                </tr>
+                <!-- Língua Portuguesa III -->
+                <tr>
+                    <td>Língua Portuguesa III</td>
+                    <td><input type="number" id="pt_1"></td>
+                    <td><input type="number" id="pt_2"></td>
+                    <td id="media-portuguesa"></td>
+                    <td id="falta-portuguesa"></td>
+                </tr>
+                <!-- Matemática III -->
+                <tr>
+                    <td>Matemática III</td>
+                    <td><input type="number" id="mat_1"></td>
+                    <td><input type="number" id="mat_2"></td>
+                    <td id="media-matematica"></td>
+                    <td id="falta-matematica"></td>
+                </tr>
+                <!-- Química III -->
+                <tr>
+                    <td>Química III</td>
+                    <td><input type="number" id="qui_1"></td>
+                    <td><input type="number" id="qui_2"></td>
+                    <td id="media-quimica"></td>
+                    <td id="falta-quimica"></td>
+                </tr>
+                <!-- Tópicos de Ciência da Natureza II -->
+                <tr>
+                    <td>Tópicos de Ciência da Natureza II</td>
+                    <td><input type="number" id="nat1"></td>
+                    <td><input type="number" id="nat2"></td>
+                    <td id="media-natureza"></td>
+                    <td id="falta-natureza"></td>
+                </tr>
+                <!-- Desenvolvimento de Projeto de Sistemas -->
+                <tr>
+                    <td>Desenvolvimento de Projeto de Sistemas</td>
+                    <td><input type="number" id="proj1"></td>
+                    <td><input type="number" id="proj2"></td>
+                    <td id="media-projetosistemas"></td>
+                    <td id="falta-projetosistemas"></td>
+                </tr>
+                <!-- Linguagem de Programação -->
+                <tr>
+                    <td>Linguagem de Programação</td>
+                    <td><input type="number" id="prog1"></td>
+                    <td><input type="number" id="prog2"></td>
+                    <td id="media-linguagemprog"></td>
+                    <td id="falta-linguagemprog"></td>
+                </tr>
+                <!-- Optativa -->
+                <tr>
+                    <td>Optativa</td>
+                    <td><input type="number" id="opt1"></td>
+                    <td><input type="number" id="opt2"></td>
+                    <td id="media-optativa"></td>
+                    <td id="falta-optativa"></td>
+                </tr>
+                <!-- Redes de Computadores II -->
+                <tr>
+                    <td>Redes de Computadores II</td>
+                    <td><input type="number" id="redes1"></td>
+                    <td><input type="number" id="redes2"></td>
+                    <td id="media-redes"></td>
+                    <td id="falta-redes"></td>
+                </tr>
+                <!-- Tópicos Especiais III -->
+                <tr>
+                    <td>Tópicos Especiais III</td>
+                    <td><input type="number" id="topicos1"></td>
+                    <td><input type="number" id="topicos2"></td>
+                    <td id="media-topicos"></td>
+                    <td id="falta-topicos"></td>
+                </tr>
+                <tr>
+                    <td>Seu nome</td>
+                    <td><input type="text" id="nome" required></td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="calcularMedias(), salvarDados()">Calcular Médias</button>
+    </form>
+
+    <script>
+        async function salvarDados() {
+            const nome = document.getElementById('nome').value;
+            const notas = {
+                historia: [document.getElementById('hist1_1').value, document.getElementById('hist1_2').value],
+                biologia: [document.getElementById('bio_1').value, document.getElementById('bio_2').value],
+                // Continue adicionando as outras matérias aqui
+            };
+
+            try {
+                const response = await fetch('/api/saveData', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nome, notas })
+                });
+
+                const result = await response.json();
+                alert(result.message);
+            } catch (error) {
+                alert('Erro ao salvar dados: ' + error.message);
+            }
+        }
+
+        function calcularMedia(notas) {
+            let soma = 0;
+            for (let nota of notas) {
+                if (nota) {
+                    soma += parseFloat(nota);
+                }
+            }
+            return soma.toFixed(0);
+        }
+        function calcularFalta(notas) {
+            let soma1 = 0;
+            for (let nota of notas) {
+                if (nota) {
+                    soma1 += parseFloat(nota);
+                }
+            }
+            return (24 - soma1).toFixed(2);
+        }
+        function calcularMedias() {
+            const historia1Notas = [
+                document.getElementById('hist1_1').value,
+                document.getElementById('hist1_2').value
+            ];
+            document.getElementById('media-historia1').innerText = calcularMedia(historia1Notas);
+            document.getElementById('falta-historia1').innerText = calcularFalta(historia1Notas);
+
+            // Biologia III
+            const BiologiaNotas = [
+                document.getElementById('bio_1').value,
+                document.getElementById('bio_2').value
+            ];
+            document.getElementById('media-biologia').innerText = calcularMedia(BiologiaNotas);
+            document.getElementById('falta-biologia').innerText = calcularFalta(BiologiaNotas);
+
+            // Educação Física
+            const EDFisNotas = [
+                document.getElementById('edfis_1').value,
+                document.getElementById('edfis_2').value
+            ];
+            document.getElementById('media-educfisica').innerText = calcularMedia(EDFisNotas);
+            document.getElementById('falta-educfisica').innerText = calcularFalta(EDFisNotas);
+
+            // Filosofia
+            const FilosofiaNotas = [
+                document.getElementById('fil_1').value,
+                document.getElementById('fil_2').value
+            ];
+            document.getElementById('media-filosofia').innerText = calcularMedia(FilosofiaNotas);
+            document.getElementById('falta-filosofia').innerText = calcularFalta(FilosofiaNotas);
+
+            // Física
+            const FísicaNotas = [
+                document.getElementById('fis_1').value,
+                document.getElementById('fis_2').value
+            ];
+            document.getElementById('media-fisica').innerText = calcularMedia(FísicaNotas);
+            document.getElementById('falta-fisica').innerText = calcularFalta(FísicaNotas);
+
+            // Espanhol
+            const EspanholNotas = [
+                document.getElementById('esp_1').value,
+                document.getElementById('esp_2').value
+            ];
+            document.getElementById('media-espanhol').innerText = calcularMedia(EspanholNotas);
+            document.getElementById('falta-espanhol').innerText = calcularFalta(EspanholNotas);
+
+            // Inglesa
+            const InglesaNotas = [
+                document.getElementById('ing_1').value,
+                document.getElementById('ing_2').value
+            ];
+            document.getElementById('media-ingles').innerText = calcularMedia(InglesaNotas);
+            document.getElementById('falta-ingles').innerText = calcularFalta(InglesaNotas);
+
+            // Portuguesa 
+            const PortuguesaNotas = [
+                document.getElementById('pt_1').value,
+                document.getElementById('pt_2').value
+            ];
+            document.getElementById('media-portuguesa').innerText = calcularMedia(PortuguesaNotas);
+            document.getElementById('falta-portuguesa').innerText = calcularFalta(PortuguesaNotas);
+
+            // Matemática
+            const MatematicaNotas = [
+                document.getElementById('mat_1').value,
+                document.getElementById('mat_2').value
+            ];
+            document.getElementById('media-matematica').innerText = calcularMedia(MatematicaNotas);
+            document.getElementById('falta-matematica').innerText = calcularFalta(MatematicaNotas);
+
+            // Química
+            const QuimicaNotas = [
+                document.getElementById('qui_1').value,
+                document.getElementById('qui_2').value
+            ];
+            document.getElementById('media-quimica').innerText = calcularMedia(QuimicaNotas);
+            document.getElementById('falta-quimica').innerText = calcularFalta(QuimicaNotas);
+
+            // Natureza
+            const naturezaNotas = [
+                document.getElementById('nat1').value,
+                document.getElementById('nat2').value
+            ];
+            document.getElementById('media-natureza').innerText = calcularMedia(naturezaNotas);
+            document.getElementById('falta-natureza').innerText = calcularFalta(naturezaNotas);
+
+            // Desenvolvimento de Projeto de Sistemas
+            const projetoSistemasNotas = [
+                document.getElementById('proj1').value,
+                document.getElementById('proj2').value
+            ];
+            document.getElementById('media-projetosistemas').innerText = calcularMedia(projetoSistemasNotas);
+            document.getElementById('falta-projetosistemas').innerText = calcularFalta(projetoSistemasNotas);
+
+            // Linguagem de Programação
+            const linguagemProgramacaoNotas = [
+                document.getElementById('prog1').value,
+                document.getElementById('prog2').value
+            ];
+            document.getElementById('media-linguagemprog').innerText = calcularMedia(linguagemProgramacaoNotas);
+            document.getElementById('falta-linguagemprog').innerText = calcularFalta(linguagemProgramacaoNotas);
+
+            // Optativa
+            const optativaNotas = [
+                document.getElementById('opt1').value,
+                document.getElementById('opt2').value
+            ];
+            document.getElementById('media-optativa').innerText = calcularMedia(optativaNotas);
+            document.getElementById('falta-optativa').innerText = calcularFalta(optativaNotas);
+
+            // Redes de Computadores II
+            const redesComputadoresNotas = [
+                document.getElementById('redes1').value,
+                document.getElementById('redes2').value
+            ];
+            document.getElementById('media-redes').innerText = calcularMedia(redesComputadoresNotas);
+            document.getElementById('falta-redes').innerText = calcularFalta(redesComputadoresNotas);
+
+            // Tópicos Especiais III
+            const topicosEspeciaisNotas = [
+                document.getElementById('topicos1').value,
+                document.getElementById('topicos2').value
+            ];
+            document.getElementById('media-topicos').innerText = calcularMedia(topicosEspeciaisNotas);
+            document.getElementById('falta-topicos').innerText = calcularFalta(topicosEspeciaisNotas);
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
